@@ -1,3 +1,3 @@
-module Jsonseq
+module JSONSEQ
   VERSION = "0.1.0"
 end

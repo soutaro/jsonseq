@@ -5,7 +5,7 @@ require 'jsonseq/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "jsonseq"
-  spec.version       = Jsonseq::VERSION
+  spec.version       = JSONSEQ::VERSION
   spec.authors       = ["Soutaro Matsumoto"]
   spec.email         = ["matsumoto@soutaro.com"]
 
