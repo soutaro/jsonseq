@@ -59,7 +59,7 @@ EOS
     result = reader.read
 
     assert_instance_of JSONSEQ::Reader::JSONObject, result
-    assert_nil result.object
+    assert_nil (_ = result).object
   end
 
   def test_each

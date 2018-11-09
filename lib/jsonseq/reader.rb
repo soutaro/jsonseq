@@ -42,6 +42,7 @@ module JSONSEQ
     end
 
     def read
+      # @type var source: String
       begin
         source = io.readline(RS).chomp(RS)
       end while source == ""
@@ -64,6 +65,7 @@ module JSONSEQ
       EndOfFile.new
     end
 
+    # @type method each: () ?{ (result) -> any } -> any
     def each
       if block_given?
         while true
@@ -85,15 +87,14 @@ module JSONSEQ
         nil
       when JSONObject
         value.object
-      else
-        raise "Unexpected value: #{value}"
       end
     end
 
     def each_object
       if block_given?
         each do |value|
-          if value.is_a?(JSONObject)
+          case value
+          when JSONObject
             yield value.object
           end
         end
@@ -101,8 +102,6 @@ module JSONSEQ
         enum_for :each_object
       end
     end
-
-    private
 
     def decode_string(string)
       decoder[string]

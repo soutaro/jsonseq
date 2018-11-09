@@ -17,6 +17,8 @@ module JSONSEQ
       io.flush
     end
 
-    alias write <<
+    def write(object)
+      self << object
+    end
   end
 end
