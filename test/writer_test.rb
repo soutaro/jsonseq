@@ -2,11 +2,12 @@ require "test_helper"
 
 class WriterTest < Minitest::Test
   def test_write
-    writer = JSONSEQ::Writer.new(io: StringIO.new)
+    io = StringIO.new
+    writer = JSONSEQ::Writer.new(io: io)
 
     writer.write [1, 2, 3]
     writer << true
 
-    assert_equal "#{JSONSEQ::RS}[1,2,3]#{JSONSEQ::LF}#{JSONSEQ::RS}true#{JSONSEQ::LF}", writer.io.string
+    assert_equal "#{JSONSEQ::RS}[1,2,3]#{JSONSEQ::LF}#{JSONSEQ::RS}true#{JSONSEQ::LF}", io.string
   end
 end
